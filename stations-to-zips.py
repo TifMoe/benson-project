@@ -28,4 +28,6 @@ zips = [i.raw['address']['postcode'] for i in addresses]
 # Add zipcode column
 stations['zipcode'] = zips
 
+stations.to_csv('stations_with_zips.csv', index_label=False)
+
 
