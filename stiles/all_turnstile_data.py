@@ -40,6 +40,7 @@ final = loadturnlist(weeks_to_import)
 # Pickle all turnstile data
 final.to_pickle('raw_turnstile_data.pkl')
 
+
 df = final.rename(columns=lambda x: x.strip().lower())
 
 df['datetime'] = df['date'] + ' ' + df['time']
@@ -67,6 +68,7 @@ df['group_id'] = df['c/a'].astype(str) + df['unit'].astype(str) + df['scp'].asty
 
 groups = set(df['group_id'])
 
+
 def groups_dict(groups):
     group_dict = defaultdict(int)
     for i in enumerate(list(groups)):
@@ -91,7 +93,10 @@ df['first_row_group'] = find_first_rows_groups(df['group_id_num'])
 
 
 # Make entries_diff and exit_diff nan when first row in group or negative value
-df.loc[(df['first_row_group'] | df['entries_diff'] < 0), 'entries_diff'] = None
-df.loc[(df['first_row_group'] | df['exit_diff'] < 0), 'exit_diff'] = None
+df.loc[df['first_row_group'], 'entries_diff'] = None
+df.loc[df['entries_diff'] < 0, 'entires_diff'] = None
+
+df.loc[df['first_row_group'], 'exit_diff'] = None
+df.loc[df['exit_diff'] < 0, 'exit_diff'] = None
 
 df.to_pickle('final_turnstile_data.pkl')
