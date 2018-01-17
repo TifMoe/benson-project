@@ -1,6 +1,6 @@
 *.ini
 .idea/
-zip_code_shape_files
+zipfile_test/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
