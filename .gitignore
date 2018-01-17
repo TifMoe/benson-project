@@ -1,6 +1,7 @@
 *.ini
 .idea/
 zipfile_test/
+*.pkl
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
