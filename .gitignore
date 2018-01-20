@@ -3,6 +3,8 @@
 zipfile_test/
 *.pkl
 .DS_Store
+data/station_vol_by_hour.csv
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
