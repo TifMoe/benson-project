@@ -4,7 +4,7 @@ zipfile_test/
 *.pkl
 .DS_Store
 data/station_vol_by_hour.csv
-
+data/turns_data_locations.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
